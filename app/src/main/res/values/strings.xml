@@ -1,0 +1,40 @@
+<resources>
+    <string name="app_name">Rezerwacja wizyty</string>
+
+    <string name="header_form">Rezerwacja wizyty</string>
+    <string name="header_summary">Podsumowanie rezerwacji</string>
+
+    <string name="label_service">Wybierz usługę</string>
+    <string name="label_date">Data wizyty</string>
+    <string name="label_name">Imię i nazwisko</string>
+    <string name="label_phone">Numer telefonu</string>
+    <string name="first_visit">To moja pierwsza wizyta</string>
+
+    <string name="btn_next">DALEJ</string>
+    <string name="btn_back">WRÓĆ</string>
+    <string name="btn_edit">POPRAW DANE</string>
+    <string name="btn_confirm">POTWIERDŹ</string>
+    <string name="btn_share">UDOSTĘPNIJ</string>
+
+    <string name="error_name">Wpisz imię i nazwisko</string>
+    <string name="error_date">Wpisz datę wizyty</string>
+    <string name="error_phone">Wpisz numer telefonu</string>
+    <string name="error_service">Wybierz usługę</string>
+
+    <string name="summary_format">Usługa: %1$s\nData: %2$s\nImię i nazwisko: %3$s\nTelefon: %4$s\nPierwsza wizyta: %5$s</string>
+
+    <string name="yes_short">tak</string>
+    <string name="no_short">nie</string>
+
+    <string name="confirmed">Rezerwacja potwierdzona! Numer: %1$s</string>
+    <string name="cancelled">Rezerwacja nie została potwierdzona.</string>
+    <string name="share_via">Udostępnij przez</string>
+    <string name="error_no_app">Brak aplikacji do udostępniania</string>
+
+    <string-array name="services">
+        <item>Wybierz usługę</item>
+        <item>Konsultacja</item>
+        <item>Badanie kontrolne</item>
+        <item>Wizyta specjalistyczna</item>
+    </string-array>
+</resources>

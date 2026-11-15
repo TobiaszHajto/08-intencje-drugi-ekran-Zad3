@@ -35,4 +35,7 @@ Na końcu klikam Wstecz na pierwszym ekranie. Aplikacja się zamyka, ponieważ n
 Do sprawdzenia działania użyłem Log.d w metodach onCreate, onStop i onDestroy w każdej aktywności. Dzięki temu mogłem zobaczyć w Logcacie, kiedy poszczególne ekrany się uruchamiają i zamykają.
 
 Tutaj wklejam fragment Logcatu z mojego emulatora:
-![zdjecie logcat Mainactivity](docs/screeny/MainActivity.png)
+![zdjecie logcat Mainactivity](docs/screeny/MainActivity.png) cos nie dziala stos.md na github przez to ze jest w tym folderze
+
+Tu dla aboutactivity:
+![zdjecie logcat Mainactivity](docs/screeny/Aboutactivity.png)

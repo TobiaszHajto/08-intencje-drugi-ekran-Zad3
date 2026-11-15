@@ -1,7 +1,9 @@
 package com.example.a08_intencje_drugi_ekran_zad2;
+
 import android.content.ActivityNotFoundException;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -23,13 +25,18 @@ public class SummaryActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        Log.d("CYKL", "SummaryActivity: onCreate");
+
         setContentView(R.layout.activity_summary);
 
         tvSummary = findViewById(R.id.tvSummary);
         tvSummary.setText(pobierzPodsumowanie());
 
         findViewById(R.id.btnEdit).setOnClickListener(v -> poprawDane());
+
         findViewById(R.id.btnConfirm).setOnClickListener(v -> potwierdz());
+
         findViewById(R.id.btnShare).setOnClickListener(v -> udostepnij());
     }
 
@@ -96,5 +103,17 @@ public class SummaryActivity extends AppCompatActivity {
                     Toast.LENGTH_SHORT
             ).show();
         }
+    }
+
+    @Override
+    protected void onStop() {
+        Log.d("CYKL", "SummaryActivity: onStop");
+        super.onStop();
+    }
+
+    @Override
+    protected void onDestroy() {
+        Log.d("CYKL", "SummaryActivity: onDestroy");
+        super.onDestroy();
     }
 }

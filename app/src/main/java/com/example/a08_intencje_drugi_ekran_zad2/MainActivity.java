@@ -2,6 +2,7 @@ package com.example.a08_intencje_drugi_ekran_zad2;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.Spinner;
@@ -18,7 +19,7 @@ public class MainActivity extends AppCompatActivity {
     private EditText etDate, etName, etPhone;
     private CheckBox cbFirstVisit;
 
-    // Odbieranie wyniku z drugiego ekranu
+    // Obddbieranie wyniku z drugiego ekranu
     private final ActivityResultLauncher<Intent> rezerwacjaLauncher =
             registerForActivityResult(
                     new ActivityResultContracts.StartActivityForResult(),
@@ -50,6 +51,9 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        Log.d("CYKL", "MainActivity: onCreate");
+
         setContentView(R.layout.activity_main);
 
         spService = findViewById(R.id.spService);
@@ -61,6 +65,8 @@ public class MainActivity extends AppCompatActivity {
         ustawUslugi();
 
         findViewById(R.id.btnNext).setOnClickListener(v -> otworzPodsumowanie());
+
+        findViewById(R.id.btnAbout).setOnClickListener(v -> otworzOProgramie());
     }
 
     private void ustawUslugi() {
@@ -79,6 +85,8 @@ public class MainActivity extends AppCompatActivity {
         String date = etDate.getText().toString().trim();
         String name = etName.getText().toString().trim();
         String phone = etPhone.getText().toString().trim();
+
+        // walidacja formularza
 
         if (spService.getSelectedItemPosition() == 0) {
             Toast.makeText(this, R.string.error_service, Toast.LENGTH_SHORT).show();
@@ -100,6 +108,8 @@ public class MainActivity extends AppCompatActivity {
             return;
         }
 
+        // Przekazywanie danych
+
         Intent intent = new Intent(MainActivity.this, SummaryActivity.class);
 
         intent.putExtra(SummaryActivity.EXTRA_SERVICE, spService.getSelectedItem().toString());
@@ -108,7 +118,23 @@ public class MainActivity extends AppCompatActivity {
         intent.putExtra(SummaryActivity.EXTRA_PHONE, phone);
         intent.putExtra(SummaryActivity.EXTRA_FIRST_VISIT, cbFirstVisit.isChecked());
 
-        // Uruchomienie drugiego ekranu z oczekiwaniem na wynik
         rezerwacjaLauncher.launch(intent);
+    }
+
+    private void otworzOProgramie() {
+        Intent intent = new Intent(MainActivity.this, AboutActivity.class);
+        startActivity(intent);
+    }
+
+    @Override
+    protected void onStop() {
+        Log.d("CYKL", "MainActivity: onStop");
+        super.onStop();
+    }
+
+    @Override
+    protected void onDestroy() {
+        Log.d("CYKL", "MainActivity: onDestroy");
+        super.onDestroy();
     }
 }
